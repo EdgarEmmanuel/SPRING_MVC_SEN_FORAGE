@@ -1,13 +1,12 @@
-<html xmlns:th="http://www.thymeleaf.org">
-
+<div xmlns:th="http://www.thymeleaf.org" th:insert="layout/layout :: layout"></div>
 	<main>
 		<div class="section-1">
 			<div class="left">
-				<p th:text=" 'WELCOME MR' + ${nom}"> <br/> </p>
+				<p th:text=" 'WELCOME MR ' + ${nom}"> <br/> </p>
 			</div>
 			<div class="right">
-				<img src="${base}asset/admin.png" alt="admin sen forage"/>
+				<img th:src="@{asset/admin.png}" alt="admin sen forage"/>
 			</div>
 		</div>
 	</main>
-</html>
+<div xmlns:th="http://www.thymeleaf.org" th:insert="layout/footer :: footer"></div>
