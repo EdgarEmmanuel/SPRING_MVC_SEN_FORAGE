@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="layout">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css"  th:href="@{css/home.css}"/>
+<link rel="stylesheet" type="text/css"  th:href="@{css/layout.css}"/>
+<link rel="shortcut icon" th:href="@{asset/favicon.ico}"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" th:href="@{asset/favicon.ico}"/>
+<title>HOME | PAGE </title>
+<body>
+<div class="info"> INFORMATIONS 
+	<a href="tel:+221897676549"><i class="fa fa-phone" aria-hidden="true"></i> 897676549</a>
+	<a href="mailto:senforage@gmail.com"> <i class="fa fa-envelope" aria-hidden="true"></i> senforage@gmail.com</a>
+	</div>
+	<header>
+		<div class="brand">
+			<a href="home.pages"><img th:src="@{asset/logo_senForage.png}" alt="sen forage" /></a>
+		</div>
+		<div class="menu">
+			<a href="villages.pages">VILLAGE</a>
+			<a href="client.pages">CLIENT</a>
+			<a href="deconnex.connex">DECONNEXION</a>
+		</div>
+	</header>
+</body>
+</html>
+</th:block>

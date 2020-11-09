@@ -39,8 +39,6 @@ public class Client {
 		this.village = village;
 	}
 
-
-
 	public int getId() {
 		return id;
 	}
