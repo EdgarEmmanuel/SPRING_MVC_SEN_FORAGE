@@ -3,6 +3,7 @@ package com.example.securityApp.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 import com.example.securityApp.dao.VillageRepository;
 
@@ -30,10 +31,10 @@ public class ViewController {
 		return this.mdv;
 	}
 	
-		@GetMapping(value= {"/message"})
-		public ModelAndView getMessagePage(){
-			this.mdv.addObject("message", "ERREUR");
-			this.mdv.setViewName("/home/message");
+		@GetMapping(value= {"/message.{message}"})
+		public ModelAndView getMessagePage(@PathVariable("message") String message){
+			this.mdv.addObject("message", message);
+			this.mdv.setViewName("home/message");
 			return this.mdv;
 		}
 	
