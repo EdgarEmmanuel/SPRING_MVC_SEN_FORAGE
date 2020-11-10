@@ -1,12 +1,30 @@
 package com.example.securityApp.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.stereotype.Service;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-//@Configuration
-//@EnableWebSecurity extends WebSecurityConfigurerAdapter
-public class SecurityConfig  {
+@Configuration
+@EnableWebSecurity 
+public class SecurityConfig extends WebSecurityConfigurerAdapter  {
+	
+	@Autowired
+	private UserDetailsService userDetails;
+	
+	@Bean
+	public AuthenticationProvider getAuth() {
+		DaoAuthenticationProvider pr = new DaoAuthenticationProvider();
+		pr.setUserDetailsService(userDetails);
+		pr.setPasswordEncoder(new BCryptPasswordEncoder());
+		return pr;
+	}
+	
+	
 
 }
