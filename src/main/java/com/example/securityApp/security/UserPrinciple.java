@@ -1,14 +1,16 @@
 package com.example.securityApp.security;
 
 import java.util.Collection;
+import java.util.Collections;
 
+import org.springframework.security.config.core.GrantedAuthorityDefaults;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.example.securityApp.entities.User;
 
-@Service
 public class UserPrinciple implements UserDetails {
 	
 	private User user;
@@ -19,8 +21,7 @@ public class UserPrinciple implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return null;
+		return Collections.singleton(new SimpleGrantedAuthority("ADMIN"));
 	}
 
 	@Override

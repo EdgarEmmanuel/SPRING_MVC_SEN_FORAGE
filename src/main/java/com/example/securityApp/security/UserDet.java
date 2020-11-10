@@ -18,10 +18,11 @@ public class UserDet implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User u =userrepo.findByNom(username);
-		// TODO Auto-generated method stub
+		User u =userrepo.findByEmail(username);
+		
 		if(u==null)throw new UsernameNotFoundException("user not found");
-		return null;
+		
+		return new UserPrinciple(u);
 	}
 	
 	
