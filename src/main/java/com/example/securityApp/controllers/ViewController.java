@@ -20,7 +20,7 @@ public class ViewController {
 	
 	@GetMapping(value= {"/"})
 	public ModelAndView getLoginPage() {
-		this.mdv.setViewName("home/login");
+		this.mdv.setViewName("/home/Home");
 		return this.mdv;
 	}
 	
@@ -48,6 +48,19 @@ public class ViewController {
 	@GetMapping(value= {"/addvillage"})
 	public ModelAndView getVillagePage() {
 		mdv.setViewName("/home/village");
+		return this.mdv;
+	}
+	
+//	request for the security configuration
+	@GetMapping(value= {"/login"})
+	public ModelAndView getPageLOgin() {
+		this.mdv.setViewName("home/login");
+		return this.mdv;
+	}
+	
+	@GetMapping(value= {"/logout-success"})
+	public ModelAndView getLogout() {
+		this.mdv.setViewName("home/login");
 		return this.mdv;
 	}
 	
