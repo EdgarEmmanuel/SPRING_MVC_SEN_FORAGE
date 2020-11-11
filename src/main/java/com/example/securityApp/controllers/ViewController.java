@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.example.securityApp.dao.ClientRepository;
 import com.example.securityApp.dao.VillageRepository;
 import com.example.securityApp.entities.Client;
 import com.example.securityApp.entities.Village;
@@ -17,6 +19,9 @@ public class ViewController {
 	private ModelAndView mdv;
 	@Autowired
 	private VillageRepository iVillage;
+	
+	@Autowired
+	private ClientRepository clientrepo;
 	
 	public ViewController() {
 		mdv = new ModelAndView();
@@ -29,10 +34,10 @@ public class ViewController {
 		return this.mdv;
 	}
 	
-	@GetMapping(value= {"/home"})
+	@GetMapping(value= {"/listClient"})
 	public ModelAndView getHomePage(){
-		this.mdv.addObject("nom", "SECK NGOR");
-		this.mdv.setViewName("/home/Home");
+		this.mdv.addObject("clients", clientrepo.findAll());
+		this.mdv.setViewName("/home/list_client");
 		return this.mdv;
 	}
 	
