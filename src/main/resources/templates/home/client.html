@@ -2,12 +2,12 @@
 </div>
 	<main>
 		<h1 style="text-align:center;">INSERTION CLIENT</h1>
-		<form action="insert_client.act" method="post">
-			<input type="text" placeholder="nom" name="nom" required /><br/>
-			<input type="email" placeholder="email" name="email" required /><br/>
-			<input type="text" placeholder="prenom" name="prenom" required /><br/>
-			<input type="text" placeholder="addresse" name="addresse" required /><br/>
-			<input type="text" placeholder="telephone" name="telephone" required /><br/>
+		<form xmlns:th="http://www.thymeleaf.org" th:action="@{/addClient}" th:object="${client}" method="post">
+			<input type="text" placeholder="nom" th:field="*{nom}" required /><br/>
+			<input type="email" placeholder="email" th:field="*{email}" required /><br/>
+			<input type="text" placeholder="prenom" th:field="*{prenom}" required /><br/>
+			<input type="text" placeholder="addresse" th:field="*{adresse}" required /><br/>
+			<input type="text" placeholder="telephone" th:field="*{telephone}" required /><br/>
 			<select  name="id_village"   required>
 					<option th:each="village: ${villages}" th:value="${village.id}" th:text="${village.nom}"></option>
 			</select>
