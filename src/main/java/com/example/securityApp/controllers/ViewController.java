@@ -1,6 +1,7 @@
 package com.example.securityApp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,8 @@ public class ViewController {
 	}
 	
 	@GetMapping(value= {"/"})
-	public ModelAndView getLoginPage() {
+	public ModelAndView getLoginPage(Authentication authenticatePerson) {
+		this.mdv.addObject("nom", authenticatePerson.getName());
 		this.mdv.setViewName("/home/Home");
 		return this.mdv;
 	}
