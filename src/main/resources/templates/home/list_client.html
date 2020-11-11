@@ -1,5 +1,22 @@
 <div xmlns:th="http://www.thymeleaf.org" th:insert="layout/layout :: layout"></div>
 
-<h1>LIST CLIENT</h1>
+<table>
+	<tr>
+		<td>NOM COMPLET</td>
+		<td>ADRESSE</td>
+		<td>EMAIL</td>
+		<td>TELEPHONE</td>
+		<td>VILLAGE</td>
+	</tr>
+	<tr>
+		<th:block xmlns:th="http://www.thymeleaf.org" th:each="client: ${clients}">
+			<td   th:text="${client.nom}+' '+${client.prenom}"></td>
+			<td   th:text="${client.adresse}"></td>
+			<td   th:text="${client.email}"></td>
+			<td   th:text="${client.telephone}"></td>
+			<td   th:text="${client.village.nom}"></td>
+		</th:block>
+	</tr>
+</table>
 
 <div xmlns:th="http://www.thymeleaf.org" th:insert="layout/footer :: footer"></div>
