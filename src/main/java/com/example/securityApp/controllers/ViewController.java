@@ -41,6 +41,13 @@ public class ViewController {
 		return this.mdv;
 	}
 	
+	@GetMapping(value= {"/listVillage"})
+	public ModelAndView getListVillagePage(){
+		this.mdv.addObject("villages", iVillage.findAll());
+		this.mdv.setViewName("/home/list_village");
+		return this.mdv;
+	}
+	
 		@GetMapping(value= {"/message.{message}"})
 		public ModelAndView getMessagePage(@PathVariable("message") String message){
 			this.mdv.addObject("message", message);

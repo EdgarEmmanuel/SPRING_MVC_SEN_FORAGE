@@ -1,0 +1,18 @@
+<div xmlns:th="http://www.thymeleaf.org" th:insert="layout/layout :: layout"></div>
+
+<table>
+	<tr>
+		<td>ID</td>
+		<td>NOM</td>
+		<td>LOCALISATION</td>
+	</tr>
+	<tr xmlns:th="http://www.thymeleaf.org" th:each="village: ${villages}">
+		<th:block>
+			<td   th:text="${village.id}"></td>
+			<td   th:text="${village.nom}"></td>
+			<td   th:text="${village.localisation}"></td>
+		</th:block>
+	</tr>
+</table>
+
+<div xmlns:th="http://www.thymeleaf.org" th:insert="layout/footer :: footer"></div>

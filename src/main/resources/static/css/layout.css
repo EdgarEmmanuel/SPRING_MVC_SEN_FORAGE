@@ -65,3 +65,27 @@ header .menu a:hover{
 	color:var(--primary-color);
 	transform:scale(1.1);
 }
+
+
+
+.header__horizontal{
+	display:flex;
+	align-items:center;
+	width:100%;
+	background:#48a7e0;
+	color:white;
+	padding:20px 0px;
+	margin-bottom:80px;
+}
+
+.header__horizontal a{
+	color:white;
+	text-decoration:none;
+	margin:0px 10px;
+}
+
+.header__horizontal a:hover{
+	font-weight:bold;
+}
+
+
