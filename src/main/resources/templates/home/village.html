@@ -1,9 +1,9 @@
 <div xmlns:th="http://www.thymeleaf.org" th:insert="layout/layout :: layout"></div>
 	<main>
-	<h1>INSERTION VILLAGE</h1>
-		<form action="village.act" method="post">
-			<input type="text" placeholder="libelle" name="libelle" required /><br/>
-			<input type="text" placeholder="localisation" name="localisation" required /><br/>
+	<h1 style="text-align:center;">INSERTION VILLAGE</h1>
+		<form xmlns:th="http://www.thymeleaf.org" th:action="@{/addVillage}" th:object="${village}" method="post">
+			<input type="text" placeholder="nom" th:field="*{nom}" required /><br/>
+			<input type="text" placeholder="localisation" th:field="*{localisation}" required /><br/>
 			<div class="buttons">
 			<input type="submit" value="ENREGISTRER" /><input type="reset" value="ANNULER" />
 			</div>

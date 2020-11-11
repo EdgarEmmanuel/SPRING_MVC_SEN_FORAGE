@@ -3,10 +3,13 @@ package com.example.securityApp.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 import com.example.securityApp.dao.VillageRepository;
+import com.example.securityApp.entities.Client;
+import com.example.securityApp.entities.Village;
 
 @Controller
 public class ViewController {
@@ -41,14 +44,16 @@ public class ViewController {
 		}
 	
 	@GetMapping(value= {"/addclient"})
-	public ModelAndView getClientPage() {
+	public ModelAndView getClientPage(Model model) {
+		model.addAttribute("client", new Client());
 		this.mdv.addObject("villages", iVillage.findAll());
 		mdv.setViewName("/home/client");
 		return this.mdv;
 	}
 	
 	@GetMapping(value= {"/addvillage"})
-	public ModelAndView getVillagePage() {
+	public ModelAndView getVillagePage(Model model) {
+		model.addAttribute("village", new Village());
 		mdv.setViewName("/home/village");
 		return this.mdv;
 	}
